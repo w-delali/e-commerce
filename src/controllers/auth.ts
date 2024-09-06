@@ -57,4 +57,8 @@ const login = async (req: Request, res: Response) => {
   res.send({ user, token });
 };
 
-export { signup, login };
+const me = async (req: Request, res: Response) => {
+  res.send(req.user);
+};
+
+export { signup, login, me };
