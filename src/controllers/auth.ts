@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { prismaClient } from "../../prisma/prisma-client";
 import jwt from "jsonwebtoken";
 import { verifyPassword } from "../utils/auth-utils";

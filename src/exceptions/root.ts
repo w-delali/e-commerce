@@ -27,6 +27,7 @@ enum ErrorCode {
   DATABASE_ERROR,
   SERVER_ERROR,
   UNAUTHORIZED,
+  PRODUCT_NOT_FOUND,
 }
 enum ErrorStatusCode {
   BAD_REQUEST = 400, // Client error: Bad request
