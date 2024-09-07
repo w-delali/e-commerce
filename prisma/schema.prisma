@@ -47,8 +47,9 @@ model Address {
   id        Int      @id @default(autoincrement())
   lineOne   String
   lineTwo   String
-  city      Decimal
+  city      String
   pinCode   String
+  country   String
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())

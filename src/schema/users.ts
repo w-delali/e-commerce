@@ -6,4 +6,11 @@ const SignUpSchema = z.object({
   password: z.string().min(6),
 });
 
-export { SignUpSchema };
+const AddressSchema = z.object({
+  lineOne: z.string(),
+  lineTwo: z.string(),
+  pinCode: z.string().length(6),
+  country: z.string(),
+  city: z.string(),
+});
+export { SignUpSchema, AddressSchema };

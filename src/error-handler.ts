@@ -60,7 +60,7 @@ export const errorHandler = (method: Function) => {
       } else {
         console.error("Unhandled error: ", e);
         exception = new HttpException(
-          "Something went wrong!",
+          "Something went wrong!" + e.message,
           ErrorCode.SERVER_ERROR,
           ErrorStatusCode.INTERNAL_SERVER_ERROR,
           e,
