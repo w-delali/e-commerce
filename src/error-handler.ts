@@ -31,7 +31,7 @@ export const errorHandler = (method: Function) => {
       } else if (e instanceof PrismaClientKnownRequestError) {
         if (e.code === "P2025") {
           exception = new NotFoundException(
-            "Record not found",
+            e.message,
             ErrorCode.DATABASE_ERROR,
           );
         } else if (e.code === "P2002") {

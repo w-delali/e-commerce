@@ -29,6 +29,7 @@ enum ErrorCode {
   UNAUTHORIZED,
   PRODUCT_NOT_FOUND,
   ADDRESS_NOT_FOUND,
+  ADDRESS_DOES_NOT_BELONG_USER,
 }
 enum ErrorStatusCode {
   BAD_REQUEST = 400, // Client error: Bad request

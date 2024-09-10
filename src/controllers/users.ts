@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AddressSchema } from "../schema/users";
+import { AddressSchema, UpdateUserSchema } from "../schema/users";
 import { prismaClient } from "../../prisma/prisma-client";
 import { NotFoundException } from "../exceptions/not-found";
 import { ErrorCode } from "../exceptions/root";
@@ -40,5 +40,24 @@ const listAddress = async (req: Request, res: Response) => {
     data: addresses,
   });
 };
+const updateUser = async (req: Request, res: Response) => {
+  const validData = UpdateUserSchema.parse(req.body);
 
-export { addAddress, deleteAddress, listAddress };
+  if (validData.defaultBillingAddress) {
+    await prismaClient.address.findFirstOrThrow({
+      where: { id: validData.defaultBillingAddress, userId: req.user.id },
+    });
+  }
+  if (validData.defaultShippingAddress) {
+    await prismaClient.address.findFirstOrThrow({
+      where: { id: validData.defaultShippingAddress, userId: req.user.id },
+    });
+  }
+  const updatedUser = await prismaClient.user.update({
+    where: { id: req.user.id },
+    data: validData,
+  });
+  res.send(updatedUser);
+};
+
+export { addAddress, deleteAddress, listAddress, updateUser };

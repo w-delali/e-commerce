@@ -8,5 +8,6 @@ const rootRouter: Router = Router();
 rootRouter.use("/auth", authRoutes);
 rootRouter.use("/products", productRoutes);
 rootRouter.use("/users", userRoutes);
+rootRouter.use("/carts.ts");
 
 export default rootRouter;
