@@ -71,4 +71,6 @@ model CartItems {
   quantity  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("cart_items")
 }
